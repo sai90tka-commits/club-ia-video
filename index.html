@@ -23,7 +23,7 @@
   </style>
 </head>
 <body>
-  <video id="video" autoplay controls muted playsinline></video>
+  <video id="video" controls playsinline></video>
 
   <script>
     const videos = [
@@ -35,6 +35,7 @@
     const selected = videos[Math.floor(Math.random() * videos.length)];
     const videoElement = document.getElementById('video');
     videoElement.src = selected;
+    videoElement.muted = false;
 
     videoElement.onloadedmetadata = () => {
       if (videoElement.videoHeight > videoElement.videoWidth) {
