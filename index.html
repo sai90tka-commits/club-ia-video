@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Club IA SAIGSA - Video Aleatorio</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: black;
+    }
+    video {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <video id="video" autoplay controls muted playsinline></video>
+
+  <script>
+    const videos = [
+      "https://drive.google.com/uc?export=download&id=1dejjcTHgzmdWkK-Uz2Tje0RxFhmDCLey",
+      "https://drive.google.com/uc?export=download&id=15owvhocBxFixWL1TPpCsRsMeyLixHp7b",
+      "https://drive.google.com/uc?export=download&id=1Qnt3Sw7uiWxXV-lMehP25AerOa2YpXBY"
+    ];
+
+    const selected = videos[Math.floor(Math.random() * videos.length)];
+    const videoElement = document.getElementById('video');
+    videoElement.src = selected;
+
+    window.onload = function () {
+      // Intentar pantalla completa
+      const fs = videoElement.requestFullscreen || videoElement.webkitRequestFullscreen || videoElement.msRequestFullscreen;
+      if (fs) {
+        fs.call(videoElement);
+      }
+      videoElement.play().catch(console.warn);
+    };
+  </script>
+</body>
+</html>
