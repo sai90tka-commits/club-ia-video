@@ -22,9 +22,9 @@
 
   <script>
     const videos = [
-      "https://drive.google.com/uc?export=download&id=1dejjcTHgzmdWkK-Uz2Tje0RxFhmDCLey",
-      "https://drive.google.com/uc?export=download&id=15owvhocBxFixWL1TPpCsRsMeyLixHp7b",
-      "https://drive.google.com/uc?export=download&id=1Qnt3Sw7uiWxXV-lMehP25AerOa2YpXBY"
+      "video1.mp4",
+      "video2.mp4",
+      "video3.mp4"
     ];
 
     const selected = videos[Math.floor(Math.random() * videos.length)];
@@ -32,7 +32,6 @@
     videoElement.src = selected;
 
     window.onload = function () {
-      // Intentar pantalla completa
       const fs = videoElement.requestFullscreen || videoElement.webkitRequestFullscreen || videoElement.msRequestFullscreen;
       if (fs) {
         fs.call(videoElement);
