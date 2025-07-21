@@ -41,12 +41,6 @@
         videoElement.classList.add("vertical");
       }
     };
-
-    window.onload = function () {
-      const fs = videoElement.requestFullscreen || videoElement.webkitRequestFullscreen || videoElement.msRequestFullscreen;
-      if (fs) fs.call(videoElement);
-      videoElement.play().catch(console.warn);
-    };
   </script>
 </body>
 </html>
