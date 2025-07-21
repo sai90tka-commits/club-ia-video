@@ -14,6 +14,11 @@
       width: 100vw;
       height: 100vh;
       object-fit: cover;
+      display: block;
+      background: black;
+    }
+    .vertical {
+      object-fit: contain;
     }
   </style>
 </head>
@@ -31,11 +36,15 @@
     const videoElement = document.getElementById('video');
     videoElement.src = selected;
 
+    videoElement.onloadedmetadata = () => {
+      if (videoElement.videoHeight > videoElement.videoWidth) {
+        videoElement.classList.add("vertical");
+      }
+    };
+
     window.onload = function () {
       const fs = videoElement.requestFullscreen || videoElement.webkitRequestFullscreen || videoElement.msRequestFullscreen;
-      if (fs) {
-        fs.call(videoElement);
-      }
+      if (fs) fs.call(videoElement);
       videoElement.play().catch(console.warn);
     };
   </script>
